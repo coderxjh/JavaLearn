@@ -1,0 +1,62 @@
+package com.xiao.rabbitmq.workqueues.two;
+
+import com.rabbitmq.client.CancelCallback;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.DeliverCallback;
+import com.xiao.rabbitmq.util.RabbitMQUtils;
+
+import java.nio.charset.StandardCharsets;
+
+/**
+ * 测试手动应答、不公平分发、预取值
+ * 消息在手动应答时是不丢失、放回队列中重新消费
+ *
+ * @author simba@onlying.cn
+ * @date 2021/7/15 15:53
+ */
+public class Work03 {
+
+    //队列名称
+    public static final String TASK_QUEUE_NAME = "ack_queue";
+
+    //接受消息
+    public static void main(String[] args) throws Exception {
+        Channel channel = RabbitMQUtils.getChannel();
+        System.out.println("C2等待接受消息处理时间较长...");
+        //声明成功消费时的接收消息
+        DeliverCallback deliverCallback = (consumerTag, message) -> {
+            //沉睡10秒
+            try {
+                Thread.sleep(20000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(consumerTag+"接收到的消息：" + new String(message.getBody(), StandardCharsets.UTF_8));
+            //手动应答
+            /**
+             * 1.消息的标记 tag
+             * 2.是否批量应答 false,不批量应答信道中的消息
+             */
+            channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
+        };
+        //声明取消消费时的接收消息
+        CancelCallback cancelCallback = consumerTag -> {
+            System.out.println(consumerTag + "消费者取消消费接口逻辑");
+        };
+        /**
+         *1.设置不公平分发
+         * int prefetchCount=1
+         * 2.设置预取值
+         * int prefetchCount=2
+         * 1)、该值定义信道中允许的未确认消息的最大数量，
+         *      设置预取值为2，如果此消费者有2条消息还未确认，RabbitMQ将停止在通道上传递更多消息给消费者。
+         *      只有当至少有一条消息被确认之后，RabbitMQ才会继续发送消息。
+         * 2)、可以把预取值理解为信道的容量，只有当容量小于设定的数量时，RabbitMQ才会继续发送消息到信道中。
+         *      而只有在消息被确认之后，信道的消息才会被删除
+         */
+        channel.basicQos(5);
+        //采用手动应答
+        boolean autoAsk = false;
+        channel.basicConsume(TASK_QUEUE_NAME, autoAsk, deliverCallback, cancelCallback);
+    }
+}
