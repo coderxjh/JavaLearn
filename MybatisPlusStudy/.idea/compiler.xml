@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="MybatisPlus" />
+        <module name="mp" />
+        <module name="MP-05" />
+        <module name="MP-04" />
+        <module name="MP-03" />
+        <module name="MP-02" />
+        <module name="MP-01" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="MybatisPlus" options="-parameters" />
+      <module name="mp" options="-parameters" />
+    </option>
+  </component>
+</project>

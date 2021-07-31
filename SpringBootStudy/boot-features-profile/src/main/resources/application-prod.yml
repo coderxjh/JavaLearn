@@ -1,0 +1,4 @@
+person:
+  name: prod-张三
+server:
+  port: 8000

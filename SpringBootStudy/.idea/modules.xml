@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/boot-admin-server/boot-admin-server.iml" filepath="$PROJECT_DIR$/boot-admin-server/boot-admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-features-profile/boot-features-profile.iml" filepath="$PROJECT_DIR$/boot-features-profile/boot-features-profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-helloworld-01/boot-helloworld-01.iml" filepath="$PROJECT_DIR$/boot-helloworld-01/boot-helloworld-01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-helloworld-02/boot-helloworld-02.iml" filepath="$PROJECT_DIR$/boot-helloworld-02/boot-helloworld-02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-web-01/boot-web-01.iml" filepath="$PROJECT_DIR$/boot-web-01/boot-web-01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-web-admin/boot-web-admin.iml" filepath="$PROJECT_DIR$/boot-web-admin/boot-web-admin.iml" />
+    </modules>
+  </component>
+</project>

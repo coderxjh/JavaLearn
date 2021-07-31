@@ -1,0 +1,3 @@
+com\xiao\autoconfigure\bean\HelloProperties.class
+com\xiao\autoconfigure\service\HelloService.class
+com\xiao\autoconfigure\config\HelloServiceAutoConfiguration.class

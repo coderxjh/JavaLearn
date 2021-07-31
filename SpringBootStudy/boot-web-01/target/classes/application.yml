@@ -1,0 +1,11 @@
+spring:
+  #  mvc:
+  #    static-path-pattern: /res/** #静态资源访问前缀
+  web:
+    resources:
+      add-mappings: true # false禁用所用静态资源
+      static-locations: classpath:/haha/ #静态资源目录
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
