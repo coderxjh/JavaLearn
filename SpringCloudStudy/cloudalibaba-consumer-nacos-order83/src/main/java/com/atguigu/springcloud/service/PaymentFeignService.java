@@ -14,5 +14,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface PaymentFeignService {
 
     @GetMapping(value = "/payment/nacos/{id}")
-    public String getPayment(@PathVariable("id") Integer id) ;
+    String getPayment(@PathVariable("id") Integer id) ;
 }
