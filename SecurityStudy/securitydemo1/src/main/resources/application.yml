@@ -1,0 +1,14 @@
+server:
+  port: 8081
+#spring:
+#  security:
+#    user:
+#      name: xiao
+#      password: xiao
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 123456
+
