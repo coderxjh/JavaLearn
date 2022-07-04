@@ -16,7 +16,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
             List<SimpleGrantedAuthority> list = new ArrayList<>();
             list.add(new SimpleGrantedAuthority("role"));
             UserDetails userDetails = new User("lucy", new BCryptPasswordEncoder().encode("123")

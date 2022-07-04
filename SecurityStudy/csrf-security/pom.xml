@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zsc</groupId>
-    <artifactId>ch07-security</artifactId>
+    <artifactId>csrf-security</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ch07-security</name>
+    <name>csrf-security</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
